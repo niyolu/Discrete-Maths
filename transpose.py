@@ -9,12 +9,9 @@ def cycle_to_one(cycle):
         cycle = [cycle]
     else:
         m = max([max(x) for x in cycle])
-        
     one_notation = list(range(1, m + 1))
-    
     for sub_cycle in cycle:
         n = len(sub_cycle)
-        
         for i in range(n):
             curr, next = sub_cycle[i], sub_cycle[(i+1) % (n)]
             one_notation[curr-1] = next
