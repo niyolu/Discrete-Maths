@@ -12,4 +12,5 @@ def transpose(cycle):
         working_seq = [x if x not in this_swap else swap(x, this_swap) for x in working_seq]
     return res[::-1]
 
-print(transpose([5,3,1,2,4]))
+if __name__ == "__main__":
+    print(transpose([5,3,1,2,4]))
