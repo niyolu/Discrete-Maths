@@ -1,14 +1,27 @@
+from collections.abc import Iterable
+
 def swap(x, tup):
     return tup[0] if x == tup[1] else tup[1]
 
-def cycleToOne(cycle):
-    n = len(cycle)
-    swap_dict = {cycle[i] : cycle[(i+1) % (n)] for i in range(n)}
-    oneNotation = [v for k, v in sorted(swap_dict.items(), key=lambda item: item[0])]
-    return oneNotation
+def cycle_to_one(cycle):
+    if not isinstance(cycle[0], Iterable):
+        m = len(cycle)
+        cycle = [cycle]
+    else:
+        m = max([max(x) for x in cycle])
+        
+    one_notation = list(range(1, m + 1))
+    
+    for sub_cycle in cycle:
+        n = len(sub_cycle)
+        
+        for i in range(n):
+            curr, next = sub_cycle[i], sub_cycle[(i+1) % (n)]
+            one_notation[curr-1] = next
+    return one_notation
 
 def transpose(cycle):
-    perm = cycleToOne(cycle)
+    perm = cycle_to_one(cycle)
     n = len(perm)
     working_seq = list(range(1, n + 1))
     res = []
