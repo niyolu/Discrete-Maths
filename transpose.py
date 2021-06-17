@@ -5,7 +5,7 @@ def transpose(cycle):
     n = len(cycle)
     working_seq = list(range(1, n + 1))
     res = []
-    for i in range(len(working_seq)):
+    for i in range(n):
         if working_seq[i] == cycle[i]: continue
         this_swap = (working_seq[i], cycle[i])
         res.append(this_swap)
