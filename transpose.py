@@ -13,8 +13,8 @@ def cycle_to_one(cycle):
     for sub_cycle in cycle:
         n = len(sub_cycle)
         for i in range(n):
-            curr, next = sub_cycle[i], sub_cycle[(i+1) % (n)]
-            one_notation[curr-1] = next
+            curr, nxt = sub_cycle[i], sub_cycle[(i+1) % (n)]
+            one_notation[curr-1] = nxt
     return one_notation
 
 def transpose(cycle):
