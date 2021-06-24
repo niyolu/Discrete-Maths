@@ -33,7 +33,7 @@ def transpose_triv(cycle):
      if not isinstance(cycle[0], Iterable):
         m = len(cycle)
         cycle = [cycle]
-     return sum([[[subcycle[0], x] for x in subcycle[::-1][:len(subcycle)]] for subcycle in cycle], [])
+     return sum([[[subcycle[0], x] for x in subcycle[::-1][:len(subcycle) - 1]] for subcycle in cycle], [])
 
 if __name__ == "__main__":
     print(transpose([1,5,4,2,3]))
