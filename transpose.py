@@ -29,5 +29,12 @@ def transpose(cycle):
         working_seq = [x if x not in this_swap else swap(x, this_swap) for x in working_seq]
     return res[::-1]
 
+def transpose_triv(cycle):
+     if not isinstance(cycle[0], Iterable):
+        m = len(cycle)
+        cycle = [cycle]
+     return sum([[[subcycle[0], x] for x in subcycle[::-1][:len(subcycle)]] for subcycle in cycle], [])
+
 if __name__ == "__main__":
     print(transpose([1,5,4,2,3]))
+    print(transpose_triv([1,2,3,4,5]))
